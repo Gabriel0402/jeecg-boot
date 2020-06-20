@@ -1,4 +1,4 @@
-package org.tang.modules.pipe.demo.entity;
+package org.jeecg.modules.pipe.entity;
 
 import java.io.Serializable;
 import java.io.UnsupportedEncodingException;

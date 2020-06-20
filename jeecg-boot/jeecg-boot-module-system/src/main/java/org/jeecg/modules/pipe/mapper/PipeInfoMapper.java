@@ -1,9 +1,9 @@
-package org.tang.modules.pipe.demo.mapper;
+package org.jeecg.modules.pipe.mapper;
 
 import java.util.List;
 
 import org.apache.ibatis.annotations.Param;
-import org.tang.modules.pipe.demo.entity.PipeInfo;
+import org.jeecg.modules.pipe.entity.PipeInfo;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 
 /**

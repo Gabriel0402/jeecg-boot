@@ -1,4 +1,4 @@
-package org.tang.modules.pipe.demo.controller;
+package org.jeecg.modules.pipe.controller;
 
 import java.util.Arrays;
 import java.util.List;
@@ -12,8 +12,8 @@ import javax.servlet.http.HttpServletResponse;
 import org.jeecg.common.api.vo.Result;
 import org.jeecg.common.system.query.QueryGenerator;
 import org.jeecg.common.util.oConvertUtils;
-import org.tang.modules.pipe.demo.entity.PipeInfo;
-import org.tang.modules.pipe.demo.service.IPipeInfoService;
+import org.jeecg.modules.pipe.entity.PipeInfo;
+import org.jeecg.modules.pipe.service.IPipeInfoService;
 
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.core.metadata.IPage;

@@ -1,6 +1,6 @@
-package org.tang.modules.pipe.demo.service;
+package org.jeecg.modules.pipe.service;
 
-import org.tang.modules.pipe.demo.entity.PipeInfo;
+import org.jeecg.modules.pipe.entity.PipeInfo;
 import com.baomidou.mybatisplus.extension.service.IService;
 
 /**

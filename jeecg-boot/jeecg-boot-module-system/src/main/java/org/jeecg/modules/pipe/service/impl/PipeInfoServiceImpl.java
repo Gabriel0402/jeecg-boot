@@ -1,8 +1,8 @@
-package org.tang.modules.pipe.demo.service.impl;
+package org.jeecg.modules.pipe.service.impl;
 
-import org.tang.modules.pipe.demo.entity.PipeInfo;
-import org.tang.modules.pipe.demo.mapper.PipeInfoMapper;
-import org.tang.modules.pipe.demo.service.IPipeInfoService;
+import org.jeecg.modules.pipe.entity.PipeInfo;
+import org.jeecg.modules.pipe.mapper.PipeInfoMapper;
+import org.jeecg.modules.pipe.service.IPipeInfoService;
 import org.springframework.stereotype.Service;
 
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
