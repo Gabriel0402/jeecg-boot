@@ -27,6 +27,7 @@
     "tinymce": "^5.1.4",
     "viser-vue": "^2.4.4",
     "vue": "^2.6.10",
+    "vue-amap": "^0.5.10",
     "vue-area-linkage": "^5.1.0",
     "vue-cropper": "^0.4.8",
     "vue-i18n": "^8.7.0",
@@ -89,9 +90,12 @@
       "vue/no-use-v-if-with-v-for": 0,
       "vue/html-closing-bracket-newline": 0,
       "vue/no-parsing-error": 0,
-	  "no-console": 0,
+      "no-console": 0,
       "no-tabs": 0,
-      "indent": [1, 4]
+      "indent": [
+        1,
+        4
+      ]
     }
   },
   "postcss": {

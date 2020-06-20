@@ -16,6 +16,7 @@ import Print from 'vue-print-nb-jeecg'
 /*import '@babel/polyfill'*/
 import preview from 'vue-photo-preview'
 import 'vue-photo-preview/dist/skin.css'
+import VueAMap from 'vue-amap'
 
 require('@jeecg/antd-online-beta220')
 require('@jeecg/antd-online-beta220/dist/OnlineForm.css')
@@ -54,6 +55,15 @@ Vue.use(preview)
 Vue.use(vueBus);
 Vue.use(JeecgComponents);
 Vue.use(VueAreaLinkage);
+Vue.use(VueAMap);
+
+VueAMap.initAMapApiLoader({
+  key: '84fa5079d06aa60183b333cd894ae641',
+  plugin: ['AMap.Autocomplete', 'AMap.PlaceSearch', 'AMap.Scale', 'AMap.OverView', 'AMap.ToolBar', 'AMap.MapType', 'AMap.PolyEditor', 'AMap.CircleEditor'],
+  // 默认高德 sdk 版本为 1.4.4
+  v: '1.4.4',
+  uiVersion: '1.0'
+})
 
 new Vue({
   router,
