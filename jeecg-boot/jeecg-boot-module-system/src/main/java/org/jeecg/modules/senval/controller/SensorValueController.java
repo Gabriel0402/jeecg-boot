@@ -1,4 +1,4 @@
-package org.jeecg.modules.pipe.controller;
+package org.jeecg.modules.senval.controller;
 
 import java.util.Arrays;
 import java.util.List;
@@ -12,8 +12,8 @@ import javax.servlet.http.HttpServletResponse;
 import org.jeecg.common.api.vo.Result;
 import org.jeecg.common.system.query.QueryGenerator;
 import org.jeecg.common.util.oConvertUtils;
-import org.jeecg.modules.pipe.entity.PipeInfo;
-import org.jeecg.modules.pipe.service.IPipeInfoService;
+import org.jeecg.modules.senval.entity.SensorValue;
+import org.jeecg.modules.senval.service.ISensorValueService;
 
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.core.metadata.IPage;
@@ -37,66 +37,66 @@ import io.swagger.annotations.ApiOperation;
 import org.jeecg.common.aspect.annotation.AutoLog;
 
  /**
- * @Description: 节点信息
+ * @Description: 节点数据
  * @Author: jeecg-boot
- * @Date:   2020-06-16
+ * @Date:   2020-06-30
  * @Version: V1.0
  */
-@Api(tags="节点信息")
+@Api(tags="节点数据")
 @RestController
-@RequestMapping("/demo/pipeInfo")
+@RequestMapping("/senval/sensorValue")
 @Slf4j
-public class PipeInfoController extends JeecgController<PipeInfo, IPipeInfoService> {
+public class SensorValueController extends JeecgController<SensorValue, ISensorValueService> {
 	@Autowired
-	private IPipeInfoService pipeInfoService;
+	private ISensorValueService sensorValueService;
 	
 	/**
 	 * 分页列表查询
 	 *
-	 * @param pipeInfo
+	 * @param sensorValue
 	 * @param pageNo
 	 * @param pageSize
 	 * @param req
 	 * @return
 	 */
-	@AutoLog(value = "节点信息-分页列表查询")
-	@ApiOperation(value="节点信息-分页列表查询", notes="节点信息-分页列表查询")
+	@AutoLog(value = "节点数据-分页列表查询")
+	@ApiOperation(value="节点数据-分页列表查询", notes="节点数据-分页列表查询")
 	@GetMapping(value = "/list")
-	public Result<?> queryPageList(PipeInfo pipeInfo,
+	public Result<?> queryPageList(SensorValue sensorValue,
 								   @RequestParam(name="pageNo", defaultValue="1") Integer pageNo,
 								   @RequestParam(name="pageSize", defaultValue="10") Integer pageSize,
 								   HttpServletRequest req) {
-		QueryWrapper<PipeInfo> queryWrapper = QueryGenerator.initQueryWrapper(pipeInfo, req.getParameterMap());
-		Page<PipeInfo> page = new Page<PipeInfo>(pageNo, pageSize);
-		IPage<PipeInfo> pageList = pipeInfoService.page(page, queryWrapper);
+		QueryWrapper<SensorValue> queryWrapper = QueryGenerator.initQueryWrapper(sensorValue, req.getParameterMap());
+		Page<SensorValue> page = new Page<SensorValue>(pageNo, pageSize);
+		IPage<SensorValue> pageList = sensorValueService.page(page, queryWrapper);
 		return Result.ok(pageList);
 	}
 	
 	/**
 	 *   添加
 	 *
-	 * @param pipeInfo
+	 * @param sensorValue
 	 * @return
 	 */
-	@AutoLog(value = "节点信息-添加")
-	@ApiOperation(value="节点信息-添加", notes="节点信息-添加")
+	@AutoLog(value = "节点数据-添加")
+	@ApiOperation(value="节点数据-添加", notes="节点数据-添加")
 	@PostMapping(value = "/add")
-	public Result<?> add(@RequestBody PipeInfo pipeInfo) {
-		pipeInfoService.save(pipeInfo);
+	public Result<?> add(@RequestBody SensorValue sensorValue) {
+		sensorValueService.save(sensorValue);
 		return Result.ok("添加成功！");
 	}
 	
 	/**
 	 *  编辑
 	 *
-	 * @param pipeInfo
+	 * @param sensorValue
 	 * @return
 	 */
-	@AutoLog(value = "节点信息-编辑")
-	@ApiOperation(value="节点信息-编辑", notes="节点信息-编辑")
+	@AutoLog(value = "节点数据-编辑")
+	@ApiOperation(value="节点数据-编辑", notes="节点数据-编辑")
 	@PutMapping(value = "/edit")
-	public Result<?> edit(@RequestBody PipeInfo pipeInfo) {
-		pipeInfoService.updateById(pipeInfo);
+	public Result<?> edit(@RequestBody SensorValue sensorValue) {
+		sensorValueService.updateById(sensorValue);
 		return Result.ok("编辑成功!");
 	}
 	
@@ -106,11 +106,11 @@ public class PipeInfoController extends JeecgController<PipeInfo, IPipeInfoServi
 	 * @param id
 	 * @return
 	 */
-	@AutoLog(value = "节点信息-通过id删除")
-	@ApiOperation(value="节点信息-通过id删除", notes="节点信息-通过id删除")
+	@AutoLog(value = "节点数据-通过id删除")
+	@ApiOperation(value="节点数据-通过id删除", notes="节点数据-通过id删除")
 	@DeleteMapping(value = "/delete")
 	public Result<?> delete(@RequestParam(name="id",required=true) String id) {
-		pipeInfoService.removeById(id);
+		sensorValueService.removeById(id);
 		return Result.ok("删除成功!");
 	}
 	
@@ -120,11 +120,11 @@ public class PipeInfoController extends JeecgController<PipeInfo, IPipeInfoServi
 	 * @param ids
 	 * @return
 	 */
-	@AutoLog(value = "节点信息-批量删除")
-	@ApiOperation(value="节点信息-批量删除", notes="节点信息-批量删除")
+	@AutoLog(value = "节点数据-批量删除")
+	@ApiOperation(value="节点数据-批量删除", notes="节点数据-批量删除")
 	@DeleteMapping(value = "/deleteBatch")
 	public Result<?> deleteBatch(@RequestParam(name="ids",required=true) String ids) {
-		this.pipeInfoService.removeByIds(Arrays.asList(ids.split(",")));
+		this.sensorValueService.removeByIds(Arrays.asList(ids.split(",")));
 		return Result.ok("批量删除成功!");
 	}
 	
@@ -134,26 +134,26 @@ public class PipeInfoController extends JeecgController<PipeInfo, IPipeInfoServi
 	 * @param id
 	 * @return
 	 */
-	@AutoLog(value = "节点信息-通过id查询")
-	@ApiOperation(value="节点信息-通过id查询", notes="节点信息-通过id查询")
+	@AutoLog(value = "节点数据-通过id查询")
+	@ApiOperation(value="节点数据-通过id查询", notes="节点数据-通过id查询")
 	@GetMapping(value = "/queryById")
 	public Result<?> queryById(@RequestParam(name="id",required=true) String id) {
-		PipeInfo pipeInfo = pipeInfoService.getById(id);
-		if(pipeInfo==null) {
+		SensorValue sensorValue = sensorValueService.getById(id);
+		if(sensorValue==null) {
 			return Result.error("未找到对应数据");
 		}
-		return Result.ok(pipeInfo);
+		return Result.ok(sensorValue);
 	}
 
     /**
     * 导出excel
     *
     * @param request
-    * @param pipeInfo
+    * @param sensorValue
     */
     @RequestMapping(value = "/exportXls")
-    public ModelAndView exportXls(HttpServletRequest request, PipeInfo pipeInfo) {
-        return super.exportXls(request, pipeInfo, PipeInfo.class, "节点信息");
+    public ModelAndView exportXls(HttpServletRequest request, SensorValue sensorValue) {
+        return super.exportXls(request, sensorValue, SensorValue.class, "节点数据");
     }
 
     /**
@@ -165,7 +165,7 @@ public class PipeInfoController extends JeecgController<PipeInfo, IPipeInfoServi
     */
     @RequestMapping(value = "/importExcel", method = RequestMethod.POST)
     public Result<?> importExcel(HttpServletRequest request, HttpServletResponse response) {
-        return super.importExcel(request, response, PipeInfo.class);
+        return super.importExcel(request, response, SensorValue.class);
     }
 
 }
