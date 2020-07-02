@@ -89,13 +89,13 @@
 
 <script>
 
-  import { JeecgListMixin } from '@/mixins/JeecgListMixin'
+  import { JeecgListMixinG } from '@/mixins/JeecgListMixinG'
   import PipeInfoModal from './modules/PipeInfoModal'
   import '@/assets/less/TableExpand.less'
 
   export default {
     name: "PipeInfoList",
-    mixins:[JeecgListMixin],
+    mixins:[JeecgListMixinG],
     components: {
       PipeInfoModal
     },

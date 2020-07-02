@@ -141,14 +141,14 @@
               placeholder: '请输入${title}',
               defaultValue: '',
             },
-            {
-              title: '所属管道',
-              key: 'pipeId',
-              type: FormTypes.input,
-              width:"200px",
-              placeholder: '请输入${title}',
-              defaultValue: '',
-            },
+            // {
+            //   title: '所属管道',
+            //   key: 'pipeId',
+            //   type: FormTypes.input,
+            //   width:"200px",
+            //   placeholder: '请输入${title}',
+            //   defaultValue: '',
+            // },
             {
               title: '节点描述',
               key: 'desp',
@@ -175,6 +175,7 @@
       },
       /** 调用完edit()方法之后会自动调用此方法 */
       editAfter() {
+        console.log(this.model)
         let fieldval = pick(this.model,'pipeId','pipeDes','hlat','hlong','rlat','rlong')
         this.$nextTick(() => {
           this.form.setFieldsValue(fieldval)
