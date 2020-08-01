@@ -18,8 +18,8 @@ import preview from 'vue-photo-preview'
 import 'vue-photo-preview/dist/skin.css'
 import VueAMap from 'vue-amap'
 
-require('@jeecg/antd-online-beta220')
-require('@jeecg/antd-online-beta220/dist/OnlineForm.css')
+require('@jeecg/antd-online-mini')
+require('@jeecg/antd-online-mini/dist/OnlineForm.css')
 
 import {
   ACCESS_TOKEN,
