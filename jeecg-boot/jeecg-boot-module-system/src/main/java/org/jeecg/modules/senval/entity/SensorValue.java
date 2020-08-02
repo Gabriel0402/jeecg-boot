@@ -34,26 +34,26 @@ public class SensorValue implements Serializable {
 	/**主键*/
 	@TableId(type = IdType.ID_WORKER_STR)
     @ApiModelProperty(value = "主键")
-    private java.lang.String id;
+    public java.lang.String id;
 	/**设备号*/
 	@Excel(name = "设备号", width = 15)
     @ApiModelProperty(value = "设备号")
-    private java.lang.String uid;
+    public java.lang.String uid;
 	/**创建人*/
     @ApiModelProperty(value = "创建人")
-    private java.lang.String createBy;
+    public java.lang.String createBy;
 	/**创建日期*/
 	@JsonFormat(timezone = "GMT+8",pattern = "yyyy-MM-dd HH:mm:ss")
     @DateTimeFormat(pattern="yyyy-MM-dd HH:mm:ss")
     @ApiModelProperty(value = "创建日期")
-    private java.util.Date createTime;
+    public java.util.Date createTime;
 	/**更新日期*/
 	@JsonFormat(timezone = "GMT+8",pattern = "yyyy-MM-dd HH:mm:ss")
     @DateTimeFormat(pattern="yyyy-MM-dd HH:mm:ss")
     @ApiModelProperty(value = "更新日期")
-    private java.util.Date updateTime;
+    public java.util.Date updateTime;
 	/**数值*/
 	@Excel(name = "数值", width = 15)
     @ApiModelProperty(value = "数值")
-    private java.lang.Double value;
+    public java.lang.Double value;
 }

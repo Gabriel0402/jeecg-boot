@@ -834,7 +834,7 @@ public class SysUserController {
 	public Result<JSONObject> userRegister(@RequestBody JSONObject jsonObject, SysUser user) {
 		Result<JSONObject> result = new Result<JSONObject>();
 		String phone = jsonObject.getString("phone");
-		String smscode = jsonObject.getString("smscode");
+		// String smscode = jsonObject.getString("smscode");
 		Object code = redisUtil.get(phone);
 		String username = jsonObject.getString("username");
 		//未设置用户名，则用手机号作为用户名
@@ -869,11 +869,11 @@ public class SysUserController {
             }
         }
 
-		if (!smscode.equals(code)) {
-			result.setMessage("手机验证码错误");
-			result.setSuccess(false);
-			return result;
-		}
+		// if (!smscode.equals(code)) {
+		// 	result.setMessage("手机验证码错误");
+		// 	result.setSuccess(false);
+		// 	return result;
+		// }
 
 		try {
 			user.setCreateTime(new Date());// 设置创建时间
@@ -888,7 +888,7 @@ public class SysUserController {
 			user.setStatus(CommonConstant.USER_UNFREEZE);
 			user.setDelFlag(CommonConstant.DEL_FLAG_0);
 			user.setActivitiSync(CommonConstant.ACT_SYNC_0);
-			sysUserService.addUserWithRole(user,"ee8626f80f7c2619917b6236f3a7f02b");//默认临时角色 test
+			sysUserService.addUserWithRole(user,"1277639564168650754");//默认临时角色 test
 			result.success("注册成功");
 		} catch (Exception e) {
 			result.error500("注册失败");

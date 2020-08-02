@@ -40,13 +40,13 @@
           <a-input placeholder="请输入用户姓名" v-decorator.trim="[ 'realname', validatorRules.realname]" />
         </a-form-item>
 
-        <a-form-item label="工号" :labelCol="labelCol" :wrapperCol="wrapperCol">
+        <!-- <a-form-item label="工号" :labelCol="labelCol" :wrapperCol="wrapperCol">
           <a-input placeholder="请输入工号" v-decorator.trim="[ 'workNo', validatorRules.workNo]" />
-        </a-form-item>
+        </a-form-item> -->
 
-        <a-form-item label="职务" :labelCol="labelCol" :wrapperCol="wrapperCol">
+        <!-- <a-form-item label="职务" :labelCol="labelCol" :wrapperCol="wrapperCol">
           <j-select-position placeholder="请选择职务" :multiple="false" v-decorator="['post', {}]"/>
-        </a-form-item>
+        </a-form-item> -->
 
         <a-form-item label="角色分配" :labelCol="labelCol" :wrapperCol="wrapperCol" v-show="!roleDisabled" >
           <a-select
@@ -63,7 +63,7 @@
         </a-form-item>
 
         <!--部门分配-->
-        <a-form-item label="部门分配" :labelCol="labelCol" :wrapperCol="wrapperCol" v-show="!departDisabled">
+        <!-- <a-form-item label="部门分配" :labelCol="labelCol" :wrapperCol="wrapperCol" v-show="!departDisabled">
           <a-input-search
             placeholder="点击选择部门"
             v-model="checkedDepartNameString"
@@ -71,10 +71,10 @@
             @search="onSearch">
             <a-button slot="enterButton" icon="search">选择</a-button>
           </a-input-search>
-        </a-form-item>
+        </a-form-item> -->
 
         <!--租户分配-->
-        <a-form-item label="租户分配" :labelCol="labelCol" :wrapperCol="wrapperCol" v-show="!departDisabled">
+        <!-- <a-form-item label="租户分配" :labelCol="labelCol" :wrapperCol="wrapperCol" v-show="!departDisabled">
 
           <a-select
             mode="multiple"
@@ -86,10 +86,10 @@
               {{ item.name }}
             </a-select-option>
           </a-select>
-        </a-form-item>
+        </a-form-item> -->
 
        <!-- update--begin--autor:wangshuai-----date:20200108------for：新增身份和负责部门------ -->
-        <a-form-item label="身份" :labelCol="labelCol" :wrapperCol="wrapperCol">
+        <!-- <a-form-item label="身份" :labelCol="labelCol" :wrapperCol="wrapperCol">
           <a-radio-group
             v-model="identity"
             @change="identityChange">
@@ -111,7 +111,7 @@
             >{{item.title}}</a-select-option
             >
           </a-select>
-        </a-form-item>
+        </a-form-item> -->
         <!-- update--end--autor:wangshuai-----date:20200108------for：新增身份和负责部门------ -->
         <a-form-item label="头像" :labelCol="labelCol" :wrapperCol="wrapperCol">
           <j-image-upload class="avatar-uploader" text="上传" v-model="fileList" ></j-image-upload>
@@ -144,9 +144,9 @@
           <a-input placeholder="请输入座机" v-decorator="[ 'telephone', validatorRules.telephone]"/>
         </a-form-item>
 
-        <a-form-item label="工作流引擎" :labelCol="labelCol" :wrapperCol="wrapperCol">
+        <!-- <a-form-item label="工作流引擎" :labelCol="labelCol" :wrapperCol="wrapperCol">
           <j-dict-select-tag  v-decorator="['activitiSync', {}]" placeholder="请选择是否同步工作流引擎" :type="'radio'" :triggerChange="true" dictCode="activiti_sync"/>
-        </a-form-item>
+        </a-form-item> -->
 
       </a-form>
     </a-spin>
@@ -232,12 +232,12 @@
           },
           roles:{},
           //  sex:{initialValue:((!this.model.sex)?"": (this.model.sex+""))}
-          workNo: {
-            rules: [
-              { required: true, message: '请输入工号' },
-              { validator: this.validateWorkNo }
-            ]
-          },
+          // workNo: {
+          //   rules: [
+          //     { required: true, message: '请输入工号' },
+          //     { validator: this.validateWorkNo }
+          //   ]
+          // },
           telephone: {
             rules: [
               { pattern: /^0\d{2,3}-[1-9]\d{6,7}$/, message: '请输入正确的座机号码' },
@@ -357,8 +357,9 @@
         that.userId = record.id;
         that.visible = true;
         that.model = Object.assign({}, record);
+        //'activitiSync','workNo','post'
         that.$nextTick(() => {
-          that.form.setFieldsValue(pick(this.model,'username','sex','realname','email','phone','activitiSync','workNo','telephone','post'))
+          that.form.setFieldsValue(pick(this.model,'username','sex','realname','email','phone','telephone'))
         });
         //身份为上级显示负责部门，否则不显示
         if(this.model.userIdentity=="2"){

@@ -21,9 +21,9 @@ spring:
         max-file-size: 10MB
         max-request-size: 10MB
   mail:
-    host: smtp.163.com
-    username: jeecgos@163.com
-    password: ??
+    host: smtp.exmail.qq.com
+    username: zcy@cczu.edu.cn
+    password: Penn343031263
     properties:
       mail:
         smtp:
@@ -31,6 +31,9 @@ spring:
           starttls:
             enable: true
             required: true
+          socketFactory:
+            class: javax.net.ssl.SSLSocketFactory
+            port: 465
   ## quartz定时任务,采用数据库方式
   quartz:
     job-store-type: jdbc
