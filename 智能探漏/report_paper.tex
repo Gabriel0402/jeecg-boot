@@ -1,0 +1,75 @@
+\documentclass[UTF8]{ctexart}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%== 引入宏 ==%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{cite}
+\usepackage{amsmath}	% 使用数学公式
+\usepackage{graphicx}	% 插入图片/PDF/EPS 等图像
+\usepackage{subfigure}	% 使用子图像或者子表格
+\usepackage{geometry}	% 设置页边距
+\usepackage{fancyhdr}	% 设置页眉页脚
+\usepackage{setspace}	% 设置行间距
+\usepackage{hyperref}	% 让生成的文章目录有链接，点击时会自动跳转到该章节
+\usepackage{url}
+\usepackage{caption2}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%== 设置全局环境 ==%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% [geometry] 设置页边距
+\geometry{top=2.6cm, bottom=2.6cm, left=2.45cm, right=2.45cm, headsep=0.4cm, foot=1.12cm}
+% 设置行间距为 1.5 倍行距
+\onehalfspacing
+% 设置页眉页脚
+\pagestyle{fancy}
+%\lhead{左头标}
+%\chead{\today}
+%\rhead{152xxxxxxxx}
+\lfoot{}
+\cfoot{\thepage}
+\rfoot{}
+%\renewcommand{\headrulewidth}{0.4pt}
+%\renewcommand{\headwidth}{\textwidth}
+%\renewcommand{\footrulewidth}{0pt}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%== 自定义命令  ==%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% 此行使文献引用以上标形式显示
+\newcommand{\supercite}[1]{\textsuperscript{\cite{#1}}}
+% 此行使section中的图、表、公式编号以A-B的形式显示
+\renewcommand{\thetable}{\arabic{section}-\arabic{table}}
+\renewcommand{\thefigure}{\arabic{section}-\arabic{figure}}
+\renewcommand{\theequation}{\arabic{section}-\arabic{equation}}
+% 此行使图注、表注与编号之间的分隔符缺省，默认是冒号:
+\renewcommand{\captionlabeldelim}{~}
+
+%===================================== 标题设置  ==========================================
+% \heiti \kaishu 为字体设置，ctex 会自动根据操作系统加载字体
+\title{\huge{\heiti 智能管道探漏系统设计}}
+\author{\small{\kaishu 朱晨阳}\\[2pt]
+}
+\date{} % 去除默认日期
+%\date{\today}
+
+%===================================== 正文区域  ==========================================
+\begin{document}
+\maketitle
+% \tableofcontents % 目录内容，注释取消掉可实现目录
+
+% \begin{flushleft}
+% \textbf{摘要}：利用Open MPI\supercite{openmpi}并行计算环境，实现对于给定轨迹查找与之相似的所有轨迹的实验。\\[8pt]
+% \textbf{关键词}：并行算法，MPI，相似轨迹，LCSS
+% \end{flushleft}
+\section{项目实现}\label{sec1}
+本项目采用如下技术完成智能管道探漏系统设计：
+\begin{itemize}
+  \item 服务器：Java, Spring,
+  \item Web前端：Vue
+  \item 数据库：MySql
+  \item 手机应用: Android,iOS
+\end{itemize}
+\section{项目功能}
+\subsection{注册，登录}
+\subsection{管道状态显示，传感器数据显示}
+\subsection{管道，传感器地图显示}
+\subsection{管道，传感器数据上传}
+\subsection{定时任务}
+\subsection{邮件提醒}
+
+
+\end{document}
