@@ -22,10 +22,20 @@ sudo systemctl start mysqld
 
 sudo mysql_secure_installation
 
+vi /etc/my.cnf
+lower_case_table_names=1
+
+service mysqld restart
+
 mysql -u root -p
+show global variables like '%lower_case%';
 
 # 创建mysql库
 create database `pipe-app` default character set utf8mb4 collate utf8mb4_general_ci;
+
+mysqldump -u root -p pipe-app > pipe.sql
+scp pipe.sql root@164.90.239.107:/root/tang
+mysql -u root -p pipe-app < pipe.sql
 
 USE pipe-app
 

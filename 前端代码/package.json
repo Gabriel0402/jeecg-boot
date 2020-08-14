@@ -40,7 +40,8 @@
     "tinymce": "^5.3.2",
     "@toast-ui/editor": "^2.1.2",
     "area-data": "^5.0.6",
-    "jsoneditor": "^9.0.0"
+    "jsoneditor": "^9.0.0",
+    "webpack": "^4.4.0"
   },
   "devDependencies": {
     "@babel/polyfill": "^7.2.5",
